@@ -66,13 +66,13 @@ int	main(void)
 	while (i < 7)
 	{
 //		line = get_next_line(fd1);
-//		printf("line [%02d]: %s", i, line);
+//		printf("line [%02d] test1: %s", i, line);
 //		free(line);
 //		line = get_next_line(fd2);
-//		printf("line [%02d]: %s", i, line);
+//		printf("line [%02d] test2: %s", i, line);
 //		free(line);
 		line = get_next_line(fd3);
-		printf("line [%02d]: %s", i, line);
+		printf("line [%02d] test2: %s", i, line);
 		free(line);
 		i++;
 	}
