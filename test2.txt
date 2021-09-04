@@ -1,5 +1,5 @@
- a chequear errores
-Otra linea mas
+teste linha ul
+linha 2
 
-Tras una linea vacia
-Ultima linea
+linha 3 deve estar vazia
+linha 6 deve retornar null
