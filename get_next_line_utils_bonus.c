@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/04 15:03:59 by gabriel           #+#    #+#             */
+/*   Updated: 2021/09/04 15:04:00 by gabriel          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 size_t	ft_strlen(char *str)
@@ -35,7 +47,9 @@ char	*ft_strjoin(char *left_str, char *buffer)
 	char			*new_str;
 	size_t			s;
 	size_t			n;
+	int				lenstr;
 
+	lenstr = ft_strlen(left_str);
 	s = 0;
 	n = 0;
 	if (!left_str)
@@ -43,7 +57,7 @@ char	*ft_strjoin(char *left_str, char *buffer)
 		left_str = (char *)malloc(1 * sizeof(char));
 		left_str[0] = '\0';
 	}
-	new_str = malloc (sizeof(char) * (ft_strlen(left_str) + ft_strlen(buffer)) + 1);
+	new_str = malloc (sizeof(char) * (lenstr + ft_strlen(buffer)) + 1);
 	if (new_str == NULL)
 		return (NULL);
 	while (left_str[n] != '\0')

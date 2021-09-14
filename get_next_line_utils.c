@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/04 15:04:02 by gabriel           #+#    #+#             */
+/*   Updated: 2021/09/04 15:04:03 by gabriel          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 size_t	ft_strlen(char *str)
@@ -35,15 +47,17 @@ char	*ft_strjoin(char *left_str, char *buffer)
 	char			*new_str;
 	size_t			s;
 	size_t			n;
+	int				lenstr;
 
+	lenstr = ft_strlen(left_str);
 	s = 0;
 	n = 0;
 	if (!left_str)
 	{
-		left_str = (char *)malloc(1 * sizeof(char));//geramos uma alocação para o caso da nossa variavel estatica nao contenha nada
+		left_str = (char *)malloc(1 * sizeof(char));
 		left_str[0] = '\0';
 	}
-	new_str = malloc (sizeof(char) * (ft_strlen(left_str) + ft_strlen(buffer)) + 1);//alocamos um espaço na memória suficiente para nosso buffer e a left_str
+	new_str = malloc (sizeof(char) * (lenstr + ft_strlen(buffer)) + 1);
 	if (new_str == NULL)
 		return (NULL);
 	while (left_str[n] != '\0')
@@ -56,7 +70,7 @@ char	*ft_strjoin(char *left_str, char *buffer)
 	return (new_str);
 }
 
-char	*ft_line(char *left_str)//função para criar nossa linha
+char	*ft_line(char *left_str)
 {
 	int			i;
 	char		*str;
@@ -65,8 +79,8 @@ char	*ft_line(char *left_str)//função para criar nossa linha
 	if (!left_str)
 		return (NULL);
 	while (left_str[i] && left_str[i] != '\n')
-		i++;//vamos até a primeira ocorrencia da quebra de linha, para determinar o tamanho da linha
-	str = (char *) malloc (sizeof(char) * (i + 2));// garantindo que tenha memória suficiente para nossos caracteres '\0' e '\n'
+		i++;
+	str = (char *) malloc (sizeof(char) * (i + 2));
 	if (!str)
 		return (NULL);
 	i = 0;
@@ -84,7 +98,7 @@ char	*ft_line(char *left_str)//função para criar nossa linha
 	return (str);
 }
 
-char	*ft_newleft(char *left_str)//função para salvar a localização no programa
+char	*ft_newleft(char *left_str)
 {
 	int			s;
 	int			i;
@@ -93,13 +107,13 @@ char	*ft_newleft(char *left_str)//função para salvar a localização no progra
 	i = 0;
 	s = 0;
 	while (left_str[i] && left_str[i] != '\n')
-		i++;//vamos até a primeira a ocorencia da quebra de linha para começar da segunda linha
-	if (left_str[i] == '\0')//caso a nossa str acabe após a quebra de linha, nos retornaremos nulo
+		i++;
+	if (left_str[i] == '\0')
 	{
 		free(left_str);
 		return (NULL);
 	}
-	str = (char *)malloc(sizeof(char) * (ft_strlen(left_str) - i + 1));// para excluirmos a primeira linha que ja foi copiada na função anterior
+	str = (char *)malloc(sizeof(char) * (ft_strlen(left_str) - i + 1));
 	if (!str)
 		return (NULL);
 	i++;
