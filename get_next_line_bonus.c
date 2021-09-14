@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 15:03:50 by gabriel           #+#    #+#             */
-/*   Updated: 2021/09/14 13:07:53 by gabriel          ###   ########.fr       */
+/*   Updated: 2021/09/14 14:25:49 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ char	*ft_readleftstr(int fd, char *left_str)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*left_str[OPEN_MAX + 1];
-
+	static char	*left_str[OPEN_MAX];//a unica diferença entre o bonus e a original, é que ao inves de criarmos um unico array, será criado uma matriz
+//o valor definido por openmax, sera a quantidade de arquivos que podem ser abertos ao mesmo tempo
 	line = NULL;
-	if (fd < 0 || fd > OPEN_MAX + 1 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0)
 		return (NULL);
 	left_str[fd] = ft_readleftstr(fd, left_str[fd]);
 	if (!left_str[fd])
@@ -53,7 +53,7 @@ char	*get_next_line(int fd)
 	line = ft_line(left_str[fd]);
 	left_str[fd] = ft_newleft(left_str[fd]);
 	if (line[0] == '\0')
-	{
+	{//nesse caso, caso algo de errado, nao podemos liberar a memoria toda da matriz, entao podemos liberar so a linha atual
 		free(line);
 		return (NULL);
 	}
