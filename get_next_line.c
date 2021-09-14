@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 15:04:06 by gabriel           #+#    #+#             */
-/*   Updated: 2021/09/07 12:49:04 by gabriel          ###   ########.fr       */
+/*   Updated: 2021/09/14 11:58:43 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,36 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	return (line);
+}
+
+#include <stdio.h>
+#include <fcntl.h>
+int	main(void)
+{
+	char	*line;
+	int		i;
+//	int		fd1;
+	int		fd2;
+//	int		fd3;
+//	fd1 = open("test.txt", O_RDONLY);
+	fd2 = open("test2.txt", O_RDONLY);
+//	fd3 = open("test3.txt", O_RDONLY);
+	i = 1;
+	while (i < 7)
+	{
+//		line = get_next_line(fd1);
+//		printf("line [%02d] test1: %s", i, line);
+//		free(line);
+		line = get_next_line(fd2);
+		printf("line [%02d] test2: %s", i, line);
+//		free(line);
+//		line = get_next_line(fd3);
+//		printf("line [%02d] test2: %s", i, line);
+		free(line);
+		i++;
+	}
+//	close(fd1);
+	close(fd2);
+//	close(fd3);
+	return (0);
 }
