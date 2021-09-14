@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 15:04:09 by gabriel           #+#    #+#             */
-/*   Updated: 2021/09/14 11:57:21 by gabriel          ###   ########.fr       */
+/*   Updated: 2021/09/14 12:54:18 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE=10
-# endif
 
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(char *s, int c);

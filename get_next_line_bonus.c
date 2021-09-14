@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 15:03:50 by gabriel           #+#    #+#             */
-/*   Updated: 2021/09/04 15:44:28 by gabriel          ###   ########.fr       */
+/*   Updated: 2021/09/14 13:07:53 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ char	*get_next_line(int fd)
 	if (!left_str[fd])
 		return (NULL);
 	line = ft_line(left_str[fd]);
+	left_str[fd] = ft_newleft(left_str[fd]);
 	if (line[0] == '\0')
 	{
 		free(line);
 		return (NULL);
 	}
-	left_str[fd] = ft_newleft(left_str[fd]);
 	return (line);
 }

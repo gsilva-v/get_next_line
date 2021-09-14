@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 15:03:55 by gabriel           #+#    #+#             */
-/*   Updated: 2021/09/14 11:57:17 by gabriel          ###   ########.fr       */
+/*   Updated: 2021/09/14 12:54:09 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@
 # ifndef OPEN_MAX
 #  define OPEN_MAX 256  
 # endif
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE=10
-# endif
-
 
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(char *s, int c);
